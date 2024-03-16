@@ -51,3 +51,19 @@ func TestLcmTrivial(t *testing.T) {
 
 	assert.Equal(t, mylcm, zero)
 }
+
+func TestLcmBigNumber(t *testing.T) {
+	a := new(big.Int)
+	a.SetString("4242424242", 10)
+
+	b := new(big.Int)
+	b.SetString("462662115", 10)
+
+	mylcm := Lcm(a, b)
+
+	result := new(big.Int)
+	result.SetString("654269657510330610", 10)
+
+	assert.Equal(t, mylcm, result)
+
+}
