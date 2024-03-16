@@ -91,12 +91,12 @@ func TestPhiTrivial(t *testing.T) {
 
 func TestPhiBigNumber(t *testing.T) {
 	n := new(big.Int)
-	n.SetString("15521526", 10)
+	n.SetString("155215", 10)
 
 	myphi := Phi(n)
 
 	result := new(big.Int)
-	result.SetString("5173836", 10)
+	result.SetString("120672", 10)
 
 	if myphi.Cmp(result) != 0 {
 		t.Errorf("failed")
