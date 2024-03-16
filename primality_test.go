@@ -26,3 +26,25 @@ func TestFermatTestTrivialNotPrimeNumber(t *testing.T) {
 		t.Errorf("failed")
 	}
 }
+
+func TestFermatBigPrimeNumber(t *testing.T) {
+	primeNumber := new(big.Int)
+	primeNumber.SetString("1417567331", 10)
+
+	var k uint = 10
+
+	if !FermatTest(primeNumber, k) {
+		t.Errorf("failed")
+	}
+}
+
+func TestFermatBigNotPrimeNumber(t *testing.T) {
+	notPrimeNumber := new(big.Int)
+	notPrimeNumber.SetString("14151519151", 10)
+
+	var k uint = 10
+
+	if FermatTest(notPrimeNumber, k) {
+		t.Errorf("failed")
+	}
+}
