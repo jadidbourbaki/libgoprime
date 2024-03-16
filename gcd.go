@@ -31,3 +31,22 @@ func Lcm(a, b *big.Int) *big.Int {
 	lcm.Div(lcm, gcd)
 	return lcm
 }
+
+func Phi(n *big.Int) *big.Int {
+	result := new(big.Int)
+	result.SetInt64(1)
+
+	bigIterator := new(big.Int)
+	bigIterator.SetInt64(2)
+
+	one := new(big.Int)
+	one.SetInt64(1)
+
+	for ; bigIterator.Cmp(n) < 0; bigIterator.Add(bigIterator, one) {
+		if Gcd(bigIterator, n).Cmp(one) == 0 {
+			result.Add(result, one)
+		}
+	}
+
+	return result
+}

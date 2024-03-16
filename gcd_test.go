@@ -74,3 +74,31 @@ func TestLcmBigNumber(t *testing.T) {
 	}
 
 }
+
+func TestPhiTrivial(t *testing.T) {
+	n := new(big.Int)
+	n.SetInt64(0)
+
+	myphi := Phi(n)
+
+	one := new(big.Int)
+	one.SetInt64(1)
+
+	if myphi.Cmp(one) != 0 {
+		t.Errorf("failed")
+	}
+}
+
+func TestPhiBigNumber(t *testing.T) {
+	n := new(big.Int)
+	n.SetString("15521526", 10)
+
+	myphi := Phi(n)
+
+	result := new(big.Int)
+	result.SetString("5173836", 10)
+
+	if myphi.Cmp(result) != 0 {
+		t.Errorf("failed")
+	}
+}
