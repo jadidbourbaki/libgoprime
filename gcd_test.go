@@ -22,6 +22,21 @@ func TestGcdTrivial(t *testing.T) {
 	assert.Equal(t, mygcd, zero)
 }
 
+func TestGcdBigNumber(t *testing.T) {
+	a := new(big.Int)
+	a.SetString("4242424242", 10)
+
+	b := new(big.Int)
+	b.SetString("462662115", 10)
+
+	mygcd := Gcd(a, b)
+
+	result := new(big.Int)
+	result.SetInt64(3)
+
+	assert.Equal(t, mygcd, result)
+}
+
 func TestLcmTrivial(t *testing.T) {
 	a := new(big.Int)
 	a.SetInt64(0)
