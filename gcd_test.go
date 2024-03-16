@@ -3,8 +3,6 @@ package libgoprime
 import (
 	"math/big"
 	"testing"
-
-	"github.com/stretchr/testify/assert"
 )
 
 func TestGcdTrivial(t *testing.T) {
@@ -19,7 +17,9 @@ func TestGcdTrivial(t *testing.T) {
 	zero := new(big.Int)
 	zero.SetInt64(0)
 
-	assert.Equal(t, mygcd, zero)
+	if mygcd.Cmp(zero) != 0 {
+		t.Errorf("failed")
+	}
 }
 
 func TestGcdBigNumber(t *testing.T) {
@@ -34,7 +34,9 @@ func TestGcdBigNumber(t *testing.T) {
 	result := new(big.Int)
 	result.SetInt64(3)
 
-	assert.Equal(t, mygcd, result)
+	if mygcd.Cmp(result) != 0 {
+		t.Errorf("failed")
+	}
 }
 
 func TestLcmTrivial(t *testing.T) {
@@ -49,7 +51,10 @@ func TestLcmTrivial(t *testing.T) {
 	zero := new(big.Int)
 	zero.SetInt64(0)
 
-	assert.Equal(t, mylcm, zero)
+	if mylcm.Cmp(zero) != 0 {
+		t.Errorf("failed")
+	}
+
 }
 
 func TestLcmBigNumber(t *testing.T) {
@@ -64,6 +69,8 @@ func TestLcmBigNumber(t *testing.T) {
 	result := new(big.Int)
 	result.SetString("654269657510330610", 10)
 
-	assert.Equal(t, mylcm, result)
+	if mylcm.Cmp(result) != 0 {
+		t.Errorf("failed")
+	}
 
 }

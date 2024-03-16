@@ -6,11 +6,13 @@ func Gcd(a, b *big.Int) *big.Int {
 	zero := new(big.Int)
 	zero.SetInt64(0)
 
-	if b.Cmp(zero) == 0 {
-		return a
+	for b.Cmp(zero) != 0 {
+		t := b
+		b = new(big.Int).Mod(a, b)
+		a = t
 	}
 
-	return Gcd(b, new(big.Int).Mod(a, b))
+	return a
 }
 
 func Lcm(a, b *big.Int) *big.Int {
