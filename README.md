@@ -9,3 +9,4 @@ Currently supports:
 - Least Common Multiple (LCM)
 - Euler's Totient Function $`\varphi(n)`$
 - Fermat Test for Primality
+- Miller Rabin Test for Primality
